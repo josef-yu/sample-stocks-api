@@ -135,6 +135,11 @@ SWAGGER_SETTINGS = {
     'DOC_EXPANSION': 'list',
 }
 
+# Djoser settings
+DJOSER = {
+    'SEND_ACTIVATION_EMAIL': False,
+}
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
