@@ -1,7 +1,12 @@
-from . import views
+from django.urls import path
 from rest_framework.routers import DefaultRouter
 
-urlpatterns = []
+from . import views
+
+urlpatterns = [
+    path('order', views.OrderCreateView.as_view()),
+    path('portfolio', views.PortfolioReadView.as_view())
+]
 
 router = DefaultRouter()
 
