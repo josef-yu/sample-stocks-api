@@ -1,24 +1,18 @@
-from rest_framework.authentication import SessionAuthentication
-from rest_framework.permissions import IsAdminUser
-from rest_framework.response import Response
-from rest_framework.schemas import SchemaGenerator
-from rest_framework.views import APIView
-from rest_framework_swagger import renderers
+from rest_framework import permissions
 
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
 
-class SwaggerSchemaView(APIView):
-    """
-    Use this endpoint to view API documentation.
-    """
-    permission_classes = [IsAdminUser]
-    renderer_classes = [
-        renderers.OpenAPIRenderer,
-        renderers.SwaggerUIRenderer
-    ]
-    authentication_classes = [SessionAuthentication]
+SwaggerSchemaView = get_schema_view(
+   openapi.Info(
+      title="Stocks API",
+      default_version='v1',
+      description="Test description",
+      terms_of_service="https://www.google.com/policies/terms/",
+      contact=openapi.Contact(email="test@email.com"),
+      license=openapi.License(name="Sample License"),
+   ),
+   public=True,
+   permission_classes=[permissions.AllowAny],
+)
 
-    def get(self, request):
-        generator = SchemaGenerator()
-        schema = generator.get_schema()
-
-        return Response(schema)

@@ -20,7 +20,7 @@ from .views import SwaggerSchemaView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('docs/', SwaggerSchemaView.as_view()),
+    path('docs/', SwaggerSchemaView.with_ui()),
     path('stock/', include('stock.urls')),
     path('auth/', include('xauth.urls'))
 ]
