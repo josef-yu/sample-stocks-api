@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     path('', include('djoser.urls.authtoken')),
-    path('register', views.RegisterUserView.as_view())
+    path('register', views.RegisterUserView.as_view(), name='register')
 ]
